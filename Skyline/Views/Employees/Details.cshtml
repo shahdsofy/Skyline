@@ -1,0 +1,50 @@
+﻿@model Employee
+
+<h1 style="background-color:cyan;text-align:center;color:maroon;">Employee Details</h1>
+
+<div class="row">
+    <dl class="row col-6">
+        <dt class="col-2">@Html.DisplayNameFor(e => e.Id)</dt>
+        <dd class="col-10">@Model.Id | @Html.DisplayFor(e => e.Id)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.FullName)</dt>
+        <dd class="col-10">@Model.FullName | @Html.DisplayFor(e => e.FullName)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.NationalId)</dt>
+        <dd class="col-10">@Model.NationalId | @Html.DisplayFor(e => e.NationalId)</dd>
+
+        <dt class="col-2">@Html.DisplayNameFor(e => e.Departments)</dt>
+        <dd class="col-10">@Model.Departments.Description (@Model.Departments.Name) | @Html.DisplayFor(e => e.Departments.Name)</dd>
+
+        <dt class="col-2">@Html.DisplayNameFor(e => e.Position)</dt>
+        <dd class="col-10">@Model.Position | @Html.DisplayFor(e => e.Position)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.Salary)</dt>
+        <dd class="col-10">@Model.Salary | @Html.DisplayFor(e => e.Salary)</dd>
+
+        <dt class="col-2">@Html.DisplayNameFor(e => e.BirthDate)</dt>
+        <dd class="col-10">@Model.BirthDate | @Html.DisplayFor(e => e.BirthDate)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.HiringDateAndTime)</dt>
+        <dd class="col-10">@Model.HiringDateAndTime | @Html.DisplayFor(e => e.HiringDateAndTime)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.AttendanceTime)</dt>
+        <dd class="col-10">@Model.AttendanceTime | @Html.DisplayFor(e => e.AttendanceTime)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.PhoneNumber)</dt>
+        <dd class="col-10">@Model.PhoneNumber | @Html.DisplayFor(e => e.PhoneNumber)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.EmailAddress)</dt>
+        <dd class="col-10">@Model.EmailAddress | @Html.DisplayFor(e => e.EmailAddress)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.SecretCode)</dt>
+        <dd class="col-10">@Model.SecretCode | @Html.DisplayFor(e => e.SecretCode)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.Appraisal)</dt>
+        <dd class="col-10">@Model.Appraisal | @Html.DisplayFor(e => e.Appraisal)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.IsActive)</dt>
+        <dd class="col-10">@Model.IsActive | @Html.DisplayFor(e => e.IsActive)</dd>
+        <dt class="col-2">@Html.DisplayNameFor(e => e.Notes)</dt>
+        <dd class="col-10">@Model.Notes | @Html.DisplayFor(e => e.Notes)</dd>
+
+
+    </dl>
+
+    <div class="col-6">
+        <img src="@Model.ImagePath" style="width:30rem;" />
+    </div>
+</div>
+
+<a asp-controller="Employees" asp-action="GetIndexView">Back To List</a>
+

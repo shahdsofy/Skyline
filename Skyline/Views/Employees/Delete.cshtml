@@ -1,0 +1,52 @@
+﻿@model Employee
+
+<h1 class="alert alert-danger text-center " style="color:red
+">Are You Sure You Want To Delete This Employee</h1>
+
+<dl class="row">
+    <dt class="col-2">Id</dt>
+    <dd class="col-10">@Model.Id</dd>
+    <dt class="col-2">Full Name</dt>
+    <dd class="col-10">@Model.FullName</dd>
+    <dt class="col-2">National Id</dt>
+    <dd class="col-10">@Model.NationalId</dd>
+
+    <dt class="col-2">Department</dt>
+    <dd class="col-10">@Model.Departments.Description (@Model.Departments.Name)</dd>
+
+    <dt class="col-2">Position</dt>
+    <dd class="col-10">@Model.Position</dd>
+    <dt class="col-2">Salary</dt>
+    <dd class="col-10">@Model.Salary</dd>
+
+    <dt class="col-2">BirthDate</dt>
+    <dd class="col-10">@Model.BirthDate</dd>
+    <dt class="col-2">HiringDateAndTime</dt>
+    <dd class="col-10">@Model.HiringDateAndTime</dd>
+    <dt class="col-2">AttendanceTime</dt>
+    <dd class="col-10">@Model.AttendanceTime</dd>
+    <dt class="col-2">PhoneNumber</dt>
+    <dd class="col-10">@Model.PhoneNumber</dd>
+    <dt class="col-2">EmailAddress</dt>
+    <dd class="col-10">@Model.EmailAddress</dd>
+    <dt class="col-2">SecretCode</dt>
+    <dd class="col-10">@Model.SecretCode</dd>
+    <dt class="col-2">Appraisal</dt>
+    <dd class="col-10">@Model.Appraisal</dd>
+    <dt class="col-2">IsActive</dt>
+    <dd class="col-10">@Model.IsActive</dd>
+    <dt class="col-2">Notes</dt>
+    <dd class="col-10">@Model.Notes</dd>
+
+
+</dl>
+
+<form method="post" asp-controller="Employees" asp-action="DeleteCurrent">
+
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+</form>
+
+<a asp-controller="Employees" asp-action="GetIndexView">Back To List</a>
+

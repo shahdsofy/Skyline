@@ -1,0 +1,145 @@
+﻿@model Employee
+<h1 class="alert alert-success text-center">Create Employees</h1>
+
+<div class="row">
+
+    <form method="post" asp-controller="Employees" asp-action="AddNew"
+          class="col-6" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"> </div>
+
+        <div>
+            <label asp-for="FullName" class="form-label">FullName</label>
+            <input type="text" asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="NationalId" class="form-label"></label>
+            <input type="text" asp-for="NationalId" class="form-control" />
+            <span asp-validation-for="NationalId" class="text-danger"></span>
+
+        </div>
+        <label asp-for="DepartmentId" class="form-label"></label>
+        <select class="form-control"
+                asp-for="DepartmentId"
+                asp-items="@(new SelectList(ViewBag.AllDepartments,"Id", "Description"))">
+            <option selected disabled value="0">Select a Department...</option>
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+        <div>
+        </div>
+        <div>
+            <label asp-for="Position" class="form-label"></label>
+            <input type="text" asp-for="Position" class="form-control" />
+            <span asp-validation-for="Position" class="text-danger"></span>
+
+        </div>
+        <div>
+            <label asp-for="Salary" class="form-label"></label>
+            <input type="text" asp-for="Salary" class="form-control" />
+            <span asp-validation-for="Salary" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            <label asp-for="BirthDate" class="form-label">Birth Date</label>
+            <input asp-for="BirthDate" class="form-control" />
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="HiringDateAndTime" class="form-label"></label>
+            <input asp-for="HiringDateAndTime" class="form-control" />
+            <span asp-validation-for="HiringDateAndTime" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            <label asp-for="AttendanceTime" class="form-label"></label>
+            <input asp-for="AttendanceTime" class="form-control" />
+            <span asp-validation-for="AttendanceTime" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            <label asp-for="PhoneNumber" class="form-label"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            <label asp-for="EmailAddress" class="form-label"></label>
+            <input type="" asp-for="EmailAddress" class="form-control" />
+            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="ConfirmEmailAddress" class="form-label"></label>
+            <input asp-for="ConfirmEmailAddress" class="form-control" />
+            <span asp-validation-for="ConfirmEmailAddress" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            <label asp-for="SecretCode" class="form-label"></label>
+            <input asp-for="SecretCode" class="form-control" />
+            <span asp-validation-for="SecretCode" class="text-danger"></span>
+
+        </div>
+        <div>
+            <label asp-for="ConfirmSecretCode" class="form-label"></label>
+            <input asp-for="ConfirmSecretCode" class="form-control" />
+            <span asp-validation-for="ConfirmSecretCode" class="text-danger"></span>
+
+        </div>
+
+        <div>
+            <label asp-for="Appraisal" class="form-label"></label>
+            <input asp-for="Appraisal" class="form-control" />
+            <span asp-validation-for="Appraisal" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="IsActive" class="form-label"></label>
+            <input type="checkbox" asp-for="IsActive" />
+            <span asp-validation-for="IsActive" class="text-danger"></span>
+        </div>
+
+
+
+        <div class="mt-3">
+            <label asp-for="Notes" class="form-label"></label>
+            <input type="" asp-for="Notes" class="form-control" />
+        </div>
+
+        <div>
+            <label asp-for="ImageFile" class="form-label"></label>
+            <input type="file" name="imageFile" id="imageFile"
+                   accept=".png,.jpg" class="form-control"
+                   onchange="AddImage()" />
+        </div>
+
+
+
+        <div>
+            <button type="submit" class="btn btn-primary col-12 mt-1">Add</button>
+            <a asp-controller="Employees" asp-action="GetIndexView" class="btn btn-primary col-12 mt-1">Back to List</a>
+        </div>
+
+    </form>
+
+
+    <div class="col-6">
+        <img src="" id="empImage" style="width:100%; aspect-ratio:1/1" class="card" />
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script>
+        function AddImage() {
+            document.getElementById("empImage").src = window.URL.createObjectURL(document.getElementById("imageFile").files[0]);
+        }
+    </script>
+}
